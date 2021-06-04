@@ -24,5 +24,5 @@
 #
 class Commitment < ApplicationRecord
   belongs_to :causes
-  belongs_to :owner
+  belongs_to :owner, class_name: "User"
 end

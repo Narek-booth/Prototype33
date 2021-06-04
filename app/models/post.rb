@@ -20,4 +20,6 @@
 #  fk_rails_...  (owner_id => users.id)
 #
 class Post < ApplicationRecord
+  belongs_to :owner, class_name: "User"
+  belongs_to :cause
 end
