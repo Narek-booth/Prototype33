@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+![Domain Model](erd.png?raw=true "Domain Model")
