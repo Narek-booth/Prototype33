@@ -28,7 +28,7 @@ class Cause < ApplicationRecord
   has_many :favorites
   has_many :posts
 
-  validates :status, presence: true
+  # validates :status, presence: true
   validates :theme, presence: true
   validates :description, presence: true
 
