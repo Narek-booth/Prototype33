@@ -29,4 +29,6 @@ class Commitment < ApplicationRecord
   validates :target, presence: true
   validates :status, presence: true
   validates :description, presence: true
+
+  enum status: { active: "active", success: "completed", failure: "failure", stopped: "stopped" }
 end

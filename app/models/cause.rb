@@ -31,4 +31,6 @@ class Cause < ApplicationRecord
   validates :status, presence: true
   validates :theme, presence: true
   validates :description, presence: true
+
+  enum status: { fundraising: "fundraising", completed: "completed", stopped: "stopped" }
 end
