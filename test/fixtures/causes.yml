@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  goal: MyString
+  starts: 2021-06-04
+  ends: 2021-06-04
+  status: MyString
+  funds_needed: 1
+  funds_raised: 1
+  commitments_count: 1
+  owner: one
+
+two:
+  image: MyString
+  goal: MyString
+  starts: 2021-06-04
+  ends: 2021-06-04
+  status: MyString
+  funds_needed: 1
+  funds_raised: 1
+  commitments_count: 1
+  owner: two

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @cause.image %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @cause.goal %>
+</p>
+
+<p>
+  <strong>Starts:</strong>
+  <%= @cause.starts %>
+</p>
+
+<p>
+  <strong>Ends:</strong>
+  <%= @cause.ends %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @cause.status %>
+</p>
+
+<p>
+  <strong>Funds needed:</strong>
+  <%= @cause.funds_needed %>
+</p>
+
+<p>
+  <strong>Funds raised:</strong>
+  <%= @cause.funds_raised %>
+</p>
+
+<p>
+  <strong>Commitments count:</strong>
+  <%= @cause.commitments_count %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @cause.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>
