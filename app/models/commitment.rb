@@ -25,4 +25,8 @@
 class Commitment < ApplicationRecord
   belongs_to :causes
   belongs_to :owner, class_name: "User"
+
+  validates :target, presence: true
+  validates :status, presence: true
+  validates :description, presence: true
 end

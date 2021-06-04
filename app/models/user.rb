@@ -29,5 +29,7 @@ class User < ApplicationRecord
   has_many :commitments, foreign_key: :owner_id
   has_many :favorites, foreign_key: :owner_id 
   has_many :posts, foreign_key: :owner_id
+
+  validates :username, presence: true, uniqueness: true
   
 end
