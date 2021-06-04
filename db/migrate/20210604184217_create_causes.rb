@@ -3,7 +3,7 @@ class CreateCauses < ActiveRecord::Migration[6.1]
     create_table :causes do |t|
       t.string :image
       t.string :theme
-      t.text :caption
+      t.text :description
       #t.date :start_date
       #t.date :end_date
       t.string :status

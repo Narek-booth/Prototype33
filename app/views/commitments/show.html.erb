@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @commitment.target %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @commitment.description %>
+</p>
+
+<p>
+  <strong>Donation size:</strong>
+  <%= @commitment.donation_size %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @commitment.status %>
+</p>
+
+<p>
+  <strong>Causes:</strong>
+  <%= @commitment.causes_id %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @commitment.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_commitment_path(@commitment) %> |
+<%= link_to 'Back', commitments_path %>
