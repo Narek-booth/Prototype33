@@ -23,8 +23,8 @@
 #  fk_rails_...  (owner_id => users.id)
 #
 class Commitment < ApplicationRecord
-  belongs_to :causes
   belongs_to :owner, class_name: "User"
+  belongs_to :cause
 
   validates :target, presence: true
   validates :status, presence: true
