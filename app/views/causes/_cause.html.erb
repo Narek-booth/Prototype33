@@ -36,7 +36,7 @@
   </div>
 
   <ul class="list-group list-group-flush">
-    <% cause.posts.each do |post| %>
+    <% cause.posts.order(created_at: :desc).each do |post| %>
       <%= render "posts/post", post: post %>
     <% end %>
   </ul>
