@@ -20,8 +20,10 @@ class FavoritesController < ApplicationController
   end
 
   # POST /favorites or /favorites.json
-  def create
+  def create(cause_id)
     @favorite = Favorite.new(favorite_params)
+    @favorite.owner = current_user 
+    @favorite.cause_id = cause_id
 
     respond_to do |format|
       if @favorite.save
