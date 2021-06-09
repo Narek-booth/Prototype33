@@ -20,8 +20,8 @@
         <td><%= commitment.description %></td>
         <td><%= commitment.donation_size %></td>
         <td><%= commitment.status %></td>
-        <td><%= commitment.cause_id %></td>
-        <td><%= commitment.owner_id %></td>
+        <td><%= commitment.cause.theme %></td>
+        <td><%= commitment.owner.username %></td>
         <td><%= link_to 'Show', commitment %></td>
         <td><%= link_to 'Edit', edit_commitment_path(commitment) %></td>
         <td><%= link_to 'Destroy', commitment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

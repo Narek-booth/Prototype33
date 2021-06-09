@@ -27,11 +27,13 @@ task sample_data: :environment do
   causes = Cause.all
 
   users.each do |user|
-    rand(3).times do
+    rand(5).times do
     user.causes.create(
       description: Faker::Quote.jack_handey,
       theme: Faker::Verb.base,
-      status: Cause.statuses.values.sample
+      status: Cause.statuses.values.sample,
+      funds_needed: rand(0..1000),
+      image: "https://robohash.org/#{rand(9999)}",
     )
     end
   end
@@ -59,7 +61,7 @@ task sample_data: :environment do
 
   users.each do |user|
     causes.each do |cause|
-      if rand < 0.20
+      if rand < 0.70
         user.commitments.create(
         description: Faker::Quote.jack_handey,
         target: Faker::Verb.base,

@@ -1,47 +1,35 @@
 <%= form_with(model: commitment) do |form| %>
   <% if commitment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(commitment.errors.count, "error") %> prohibited this commitment from being saved:</h2>
-
-      <ul>
+      <ul class="list-unstyled">
         <% commitment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+            <div class="alert alert-danger" role="alert">
+              <%= error.full_message %>
+            </div>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :target %>
-    <%= form.text_field :target %>
+    <%= form.text_field :target, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :donation_size %>
-    <%= form.number_field :donation_size %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :causes_id %>
-    <%= form.text_field :causes_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
+    <%= form.text_area :donation_size, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary btn-block" %>
   </div>
 <% end %>
+

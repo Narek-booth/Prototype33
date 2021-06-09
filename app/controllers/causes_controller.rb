@@ -22,6 +22,7 @@ class CausesController < ApplicationController
   # POST /causes or /causes.json
   def create
     @cause = Cause.new(cause_params)
+    @cause.owner = current_user
 
     respond_to do |format|
       if @cause.save
@@ -64,6 +65,6 @@ class CausesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cause_params
-      params.require(:cause).permit(:image, :goal, :starts, :ends, :status, :funds_needed, :funds_raised, :commitments_count, :owner_id)
+      params.require(:cause).permit(:image, :theme, :description, :starts, :ends, :status, :funds_needed, :funds_raised, :commitments_count, :owner_id)
     end
 end

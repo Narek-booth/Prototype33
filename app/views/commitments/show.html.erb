@@ -19,14 +19,10 @@
   <%= @commitment.status %>
 </p>
 
-<p>
-  <strong>Causes:</strong>
-  <%= @commitment.causes_id %>
-</p>
 
 <p>
   <strong>Owner:</strong>
-  <%= @commitment.owner_id %>
+  <%= @commitment.owner.username %>
 </p>
 
 <%= link_to 'Edit', edit_commitment_path(@commitment) %> |

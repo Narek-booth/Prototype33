@@ -1,62 +1,39 @@
 <%= form_with(model: cause) do |form| %>
   <% if cause.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
-
-      <ul>
+      <ul class="list-unstyled">
         <% cause.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+            <div class="alert alert-danger" role="alert">
+              <%= error.full_message %>
+            </div>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :theme %>
+    <%= form.text_field :theme, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.text_area :image, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :goal %>
-    <%= form.text_field :goal %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :starts %>
-    <%= form.date_select :starts %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ends %>
-    <%= form.date_select :ends %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :funds_needed %>
-    <%= form.number_field :funds_needed %>
-  </div>
-
-  <div class="field">
-    <%= form.label :funds_raised %>
-    <%= form.number_field :funds_raised %>
-  </div>
-
-  <div class="field">
-    <%= form.label :commitments_count %>
-    <%= form.number_field :commitments_count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
+  <div class="form-group">
+    <%= form.label :funds_needed_usd %>
+    <%= form.number_field :funds_needed, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary btn-block" %>
   </div>
 <% end %>
