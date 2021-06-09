@@ -30,7 +30,11 @@ task sample_data: :environment do
     rand(5).times do
     user.causes.create(
       description: Faker::Quote.jack_handey,
-      theme: Faker::Verb.base,
+      theme: Faker::Lorem.paragraph(
+        sentence_count: 2,
+        supplemental: true,
+        random_sentences_to_add: 4
+      ),
       status: Cause.statuses.values.sample,
       funds_needed: rand(0..1000),
       image: "https://robohash.org/#{rand(9999)}",
