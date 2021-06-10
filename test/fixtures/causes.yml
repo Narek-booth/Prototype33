@@ -22,7 +22,6 @@
 #
 #  fk_rails_...  (owner_id => users.id)
 #
-
 one:
   image: MyString
   goal: MyString

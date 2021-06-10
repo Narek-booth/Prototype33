@@ -18,7 +18,6 @@
 #  fk_rails_...  (cause_id => causes.id)
 #  fk_rails_...  (owner_id => users.id)
 #
-
 one:
   owner: one
   cause: one

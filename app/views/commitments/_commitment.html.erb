@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body py-3 d-flex align-items-center justify-content-between">
+    <h2 class="h5 m-0 p-0 d-flex align-items-center">
+      <%= link_to commitment.owner.username, user_path(commitment.owner.username), class: "text-dark" %>
+    </h2>
+
+    <div>
+      <% if current_user == commitment.owner %>
+        <%= link_to edit_commitment_path(commitment), class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-edit fa-fw"></i>
+        <% end %>
+
+      
+        <%= link_to commitment, method: :delete, class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-trash fa-fw"></i>
+        <% end %>
+      <% end %>
+      
+    </div>
+  </div>
+
+  
+  <div class="card-body">
+    <p class="card-text">target: <%= commitment.target %></p>
+  </div>
+
+  <div class="card-body">
+    <p class="card-text">description: <%= commitment.description %></p>
+  </div>
+
+  <div class="card-body">
+    <p class="card-text">Funds needed: <%= commitment.donation_size %> USD</p>
+  </div>
+
+
+</div>

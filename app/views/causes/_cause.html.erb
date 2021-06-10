@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-body py-3 d-flex align-items-center justify-content-between">
+    <h2 class="h5 m-0 p-0 d-flex align-items-center">
+
+      <%= link_to cause.owner.username, user_path(cause.owner.username), class: "text-dark" %>
+    </h2>
+
+    <div>
+      <% if current_user == cause.owner %>
+        <%= link_to edit_cause_path(cause), class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-edit fa-fw"></i>
+        <% end %>
+
+      
+        <%= link_to cause, method: :delete, class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-trash fa-fw"></i>
+        <% end %>
+      <% end %>
+      
+    </div>
+  </div>
+
+  <%= image_tag cause.image, class: "img-fluid" %>
+
+  <div class="card-body">
+    <p class="card-text"><%= cause.theme %></p>
+  </div>
+
+  
+  <div class="card-body">
+    <p class="card-text">Description: <%= cause.description %></p>
+  </div>
+
+  <div class="card-body">
+    <p class="card-text">Funds needed: <%= cause.funds_needed %> USD</p>
+  </div>
+
+  <% if current_user.commitments.find_by(cause_id: cause.id).nil? %>
+    <div class="card-body">
+      <%= render "commitments/form", commitment: cause.commitments.build %>
+    </div>
+  <% end %>
+
+  <ul class="list-group list-group-flush">
+    <% cause.posts.order(created_at: :desc).each do |post| %>
+      <%= render "posts/post", post: post %>
+    <% end %>
+  </ul>
+  
+<div class="card-body">
+    <%= render "posts/form", post: cause.posts.build %>
+  </div>
+</div>
+
+
+</div>

@@ -7,7 +7,7 @@ class CreateCommitments < ActiveRecord::Migration[6.1]
       #t.date :start_date
       #t.date :end_date
       t.string :status
-      t.references :cause, null: false, foreign_key: true
+      t.belongs_to :cause, null: false, foreign_key: true, index: true
       t.belongs_to :owner, null: false, foreign_key: { to_table: :users }, index: true
 
       t.timestamps

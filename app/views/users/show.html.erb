@@ -1,0 +1,34 @@
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+
+  <div class="container mb-4" style="width: 25rem;">
+<h1>
+  <%= @user.username %>
+</h1>
+
+<h3>
+  Causes
+</h3>
+ </div>
+
+
+<% @user.causes.each do |cause| %>
+      <div class="container mb-4" style="width: 25rem;">
+          <%= render 'causes/cause_no_comment', cause: cause %>
+      </div>
+<% end %>
+
+  <div class="container mb-4" style="width: 25rem;">
+<h3>
+  Commitments
+</h3>
+  </div>
+
+<% @user.commitments.each do |commitment| %>
+  <div class="container mb-4" style="width: 25rem;">
+     <%= render 'commitments/commitment', commitment: commitment %>
+  </div>
+<% end %>
+
+  </div>
+</div>

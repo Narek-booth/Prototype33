@@ -1,32 +1,26 @@
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
+      <ul class="list-unstyled">
         <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+            <div class="alert alert-danger" role="alert">
+              <%= error.full_message %>
+            </div>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :owner %>
-    <%= form.text_field :owner %>
-  </div>
+  <%= form.hidden_field :cause_id %>
 
-  <div class="field">
-    <%= form.label :cause %>
-    <%= form.text_field :cause %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="form-group">
+    <%= form.label :body, class: "sr-only" %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-secondary btn-block" %>
   </div>
 <% end %>

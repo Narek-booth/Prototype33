@@ -1,42 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Causes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Goal</th>
-      <th>Starts</th>
-      <th>Ends</th>
-      <th>Status</th>
-      <th>Funds needed</th>
-      <th>Funds raised</th>
-      <th>Commitments count</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+  
     <% @causes.each do |cause| %>
-      <tr>
-        <td><%= cause.image %></td>
-        <td><%= cause.goal %></td>
-        <td><%= cause.starts %></td>
-        <td><%= cause.ends %></td>
-        <td><%= cause.status %></td>
-        <td><%= cause.funds_needed %></td>
-        <td><%= cause.funds_raised %></td>
-        <td><%= cause.commitments_count %></td>
-        <td><%= cause.owner_id %></td>
-        <td><%= link_to 'Show', cause %></td>
-        <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
-        <td><%= link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="container mb-4" style="width: 25rem;">
+          <%= render 'causes/cause_no_comment', cause: cause %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

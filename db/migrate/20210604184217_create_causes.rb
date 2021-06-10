@@ -9,7 +9,7 @@ class CreateCauses < ActiveRecord::Migration[6.1]
       t.string :status
       t.integer :funds_needed, default: 0
       t.integer :funds_raised, default: 0
-      t.integer :commitments_count, default: 0
+      #t.integer :commitments_count, default: 0
       t.belongs_to :owner, null: false, foreign_key: { to_table: :users }, index: true
 
       t.timestamps
