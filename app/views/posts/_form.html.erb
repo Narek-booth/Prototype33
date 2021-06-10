@@ -1,4 +1,6 @@
-<%= form_with(model: post) do |form| %>
+<li id="<%= dom_id(post.cause) %>_<%= dom_id(post) %>_form" class="list-group-item">
+
+<%= form_with(model: post, local:false) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <ul class="list-unstyled">
@@ -24,3 +26,4 @@
     <%= form.submit class: "btn btn-outline-secondary btn-block" %>
   </div>
 <% end %>
+</li>

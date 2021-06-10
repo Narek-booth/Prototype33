@@ -19,6 +19,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+      respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /posts or /posts.json
@@ -30,6 +34,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_back fallback_location: root_path, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
+        format.js 
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -43,6 +48,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_back fallback_location: root_path, notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -56,6 +62,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
+      format.js do
+        render template: "posts/destroy.js.erb"
+      end
     end
   end
 
