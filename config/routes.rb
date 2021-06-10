@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "causes#index"
   
   devise_for :users
-  #resources :posts
+  resources :posts, only: [:create, :edit, :destroy]
   resources :favorites, only: [:index]
   resources :commitments
   resources :causes
