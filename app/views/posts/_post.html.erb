@@ -8,7 +8,7 @@
 
         <div>
           <% if current_user == post.owner %>
-            <%= link_to edit_post_path(post), class: "btn btn-link btn-sm text-muted" do %>
+            <%= link_to edit_post_path(post), class: "btn btn-link btn-sm text-muted", remote: true do %>
               <i class="fas fa-edit fa-fw"></i>
             <% end %>
 
@@ -19,7 +19,7 @@
         </div>
       </div>
    
-         <p><%= post.body %></p>
+         <p "<%= dom_id(post.cause) %>_new_post_form" ><%= post.body %></p>
     </div>
   </div> 
 </li>
