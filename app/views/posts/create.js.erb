@@ -1,0 +1,4 @@
+var added_post = $("<%= j(render 'posts/post', post: @post) %>")
+$("#new_post_form").before(added_post);
+
+$("#new_post_form #post_body").val("")
