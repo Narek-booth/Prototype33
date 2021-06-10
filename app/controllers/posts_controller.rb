@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
+  before_action :ensure_current_user_is_owner, only: [:destroy, :update, :edit]
+
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -61,6 +63,12 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def ensure_current_user_is_owner
+      if current_user != @comment.author
+        redirect_back fallback_location: root_url, alert: "You're not authorized."
+      end
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,5 +1,6 @@
 class CommitmentsController < ApplicationController
   before_action :set_commitment, only: %i[ show edit update destroy ]
+  before_action :ensure_current_user_is_owner, only: [:destroy, :update, :edit]
 
   # GET /commitments or /commitments.json
   def index
@@ -62,6 +63,12 @@ class CommitmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_commitment
       @commitment = Commitment.find(params[:id])
+    end
+
+    def ensure_current_user_is_owner
+      if current_user != @comment.author
+        redirect_back fallback_location: root_url, alert: "You're not authorized for that."
+      end
     end
 
     # Only allow a list of trusted parameters through.

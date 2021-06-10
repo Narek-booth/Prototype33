@@ -1,5 +1,6 @@
 class CausesController < ApplicationController
   before_action :set_cause, only: %i[ show edit update destroy ]
+  before_action :ensure_current_user_is_owner, only: [:destroy, :update, :edit]
 
   # GET /causes or /causes.json
   def index
@@ -61,6 +62,12 @@ class CausesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cause
       @cause = Cause.find(params[:id])
+    end
+
+    def ensure_current_user_is_owner
+      if current_user != @comment.author
+        redirect_back fallback_location: root_url, alert: "You're not authorized for that."
+      end
     end
 
     # Only allow a list of trusted parameters through.
