@@ -56,6 +56,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
+      format.js do
+        render template: "posts/destroy.js.erb"
+      end
     end
   end
 
