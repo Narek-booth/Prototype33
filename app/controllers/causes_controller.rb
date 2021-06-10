@@ -65,7 +65,7 @@ class CausesController < ApplicationController
     end
 
     def ensure_current_user_is_owner
-      if current_user != @comment.author
+      if current_user != @cause.owner
         redirect_back fallback_location: root_url, alert: "You're not authorized for that."
       end
     end

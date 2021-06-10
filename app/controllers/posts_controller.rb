@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     end
 
     def ensure_current_user_is_owner
-      if current_user != @comment.author
+      if current_user != @post.owner
         redirect_back fallback_location: root_url, alert: "You're not authorized."
       end
     end
